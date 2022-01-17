@@ -1,7 +1,9 @@
 export default function LoginComponent() {
   return (
     <div>
-      <h1>this is login component</h1>
+      <h1>the user is: </h1>
+      <button>Login</button>
+      <button>Logout</button>
     </div>
   );
 }
