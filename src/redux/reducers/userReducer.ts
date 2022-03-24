@@ -7,6 +7,7 @@ import {
 export const initialState: userStateInterface = {
   isLogedIn: false,
   role: "",
+  //cources must be added
 };
 
 const userReducer = (state = initialState, action: UserActoinInterface) => {

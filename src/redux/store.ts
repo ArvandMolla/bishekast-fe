@@ -1,7 +1,5 @@
-import { createStore, applyMiddleware } from "redux";
+import { createStore } from "redux";
 import combinedReducers from "./reducers";
-import mainReducer from "./reducers/userReducer";
-import { initialState } from "./reducers/userReducer";
 
 declare global {
   interface Window {
