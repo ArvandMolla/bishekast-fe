@@ -1,4 +1,4 @@
 export interface userStateInterface {
-  isLogedIn: boolean;
+  isLogedIn: string;
   role: string;
 }

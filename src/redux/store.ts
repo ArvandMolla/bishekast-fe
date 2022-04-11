@@ -1,4 +1,5 @@
-import { createStore } from "redux";
+import { applyMiddleware, createStore, compose } from "redux";
+import thunk from "redux-thunk";
 import combinedReducers from "./reducers";
 
 declare global {
@@ -10,14 +11,10 @@ declare global {
 export const store = createStore(
   combinedReducers,
   {},
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+  compose(
+    applyMiddleware(thunk),
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+  )
 );
-
-// const configureStore = () =>
-//   createStore(
-//     mainReducer,
-//     initialState,
-//     window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
-//   );
 
 export default store;

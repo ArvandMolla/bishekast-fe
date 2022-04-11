@@ -4,19 +4,25 @@ import {
   userStateInterface,
 } from "../../interfaces/index";
 
-export const initialState: userStateInterface = {
-  isLogedIn: false,
+export const userInitialState: userStateInterface = {
+  isLogedIn: "No",
   role: "",
   //cources must be added
 };
 
-const userReducer = (state = initialState, action: UserActoinInterface) => {
+const userReducer = (state = userInitialState, action: UserActoinInterface) => {
   switch (action.type) {
     case userActionTypes.LOGIN:
-      return state;
+      return {
+        ...state,
+        isLogedIn: "Yes",
+      };
 
     case userActionTypes.LOGOUT:
-      return state;
+      return {
+        ...state,
+        isLogedIn: "No",
+      };
 
     default:
       return state;
