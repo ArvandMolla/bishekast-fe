@@ -1,10 +1,33 @@
-.menu-container {
+.header-container {
   height: 70px;
   background-color: white;
 }
+.menu-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  height: 70px;
+}
+.ant-dropdown-link {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+.ant-dropdown-link:hover {
+  color: #06609c;
+  cursor: pointer;
+}
+.submenu {
+  margin-top: 12px;
+}
 
-
-
+span.ant-dropdown-menu-title-content {
+  padding: 6px;
+  
+}
+ul.ant-dropdown-menu {
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
 
 div .divider-line {
   width: 100%;
