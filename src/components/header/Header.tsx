@@ -47,14 +47,10 @@ const contactMenu = (
 const loginMenu = (
   <Menu className="submenu" style={{ width: 250 }}>
     <Menu.Item key="8" style={{ fontSize: 15 }}>
-      <a target="_blank" href="#">
-        عضویت در سایت
-      </a>
+      <a href="/register">عضویت در سایت</a>
     </Menu.Item>
     <Menu.Item key="9" style={{ fontSize: 15 }}>
-      <a target="_blank" href="#">
-        ورود به سایت
-      </a>
+      <a href="/login">ورود به سایت</a>
     </Menu.Item>
   </Menu>
 );
@@ -64,7 +60,7 @@ function Header() {
     <div className="header-container">
       <div className="menu-container">
         <p className="ant-dropdown-link" style={{ fontSize: 16 }}>
-          <a href="#" style={{ fontSize: 16, color: "rgba(0,0,0,.85)" }}>
+          <a href="/" style={{ fontSize: 16, color: "rgba(0,0,0,.85)" }}>
             صفحه اصلی
           </a>
         </p>

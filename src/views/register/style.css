@@ -1,0 +1,26 @@
+.user-form {
+    margin-top: 60px;
+}
+
+.register-container {
+    
+    text-align: center;
+}
+
+.user-input {
+    margin-bottom: 20px;
+}
+
+.google-login {
+    margin-top: 20px;
+}
+
+.user-divider {
+    margin-top: 40px !important;
+}
+.switch-page {
+    margin-top: 30px;
+}
+.switch-page a {
+    margin-right: 5px;
+}

@@ -4,7 +4,7 @@ body {
   sans-serif !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  direction: rtl;
+  /* direction: rtl; */
   margin: 0;
   /* overflow:hidden; */
   background-color: rgb(244, 244, 244) !important;

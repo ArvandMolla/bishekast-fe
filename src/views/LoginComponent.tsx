@@ -2,8 +2,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { bindActionCreators } from "redux";
 import { actionCreators } from "../redux/action-creators";
 import { rootStateType } from "../redux/reducers/index";
+import { useEffect } from "react";
 
 export default function LoginComponent() {
+  useEffect(() => {
+    console.log("heloooo");
+  }, []);
   const dispatch = useDispatch();
   const { loginActionCreator, logoutActionCreator } = bindActionCreators(
     actionCreators,
@@ -14,9 +18,9 @@ export default function LoginComponent() {
 
   return (
     <div>
-      <h1>the user is: {userState.isLogedIn} </h1>
-      <button onClick={() => loginActionCreator()}>Login</button>
-      <button onClick={() => logoutActionCreator()}>Logout</button>
+      <h1>the user is: </h1>
+      <button>Login</button>
+      <button>Logout</button>
     </div>
   );
 }

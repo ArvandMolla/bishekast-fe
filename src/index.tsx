@@ -8,7 +8,7 @@ import { ConfigProvider } from "antd";
 
 ConfigProvider.config({
   theme: {
-    primaryColor: "#06609c",
+    primaryColor: "#0565a6",
     errorColor: "#ff4d4f",
     warningColor: "#faad14",
     successColor: "#52c41a",
