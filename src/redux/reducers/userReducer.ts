@@ -27,6 +27,9 @@ const userReducer = (state = userInitialState, action: UserActoinInterface) => {
       return {
         ...state,
         isLogedIn: false,
+        name: "",
+        id: "",
+        role: "",
       };
 
     default:

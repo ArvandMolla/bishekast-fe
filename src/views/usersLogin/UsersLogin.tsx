@@ -1,9 +1,46 @@
-import { Input, Row, Col, Button } from "antd";
+import { Input, Row, Col, Button, message } from "antd";
 import { MailOutlined, LockOutlined, UserOutlined } from "@ant-design/icons";
 import "./style.css";
 import GoogleLogo from "../../components/GoogleLogo";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { bindActionCreators } from "redux";
+import { actionCreators } from "../../redux/action-creators";
+import { Navigate, useNavigate } from "react-router-dom";
+import { rootStateType } from "../../redux/reducers";
 
 function UsersLogin() {
+  const [email, setEmail] = useState<string | null>(null);
+  const [password, setPassword] = useState<string | null>(null);
+
+  const user = useSelector((state: rootStateType) => state.user);
+  const dispatch = useDispatch();
+  const { loginActionCreator } = bindActionCreators(actionCreators, dispatch);
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (user.isLogedIn) {
+      navigate("/user-panel");
+    }
+  });
+
+  const handleLogin = async () => {
+    if (email && password) {
+      const credentials = {
+        email,
+        password,
+      };
+
+      loginActionCreator(credentials);
+    } else {
+      message.error({
+        content: "ایمیل و کلمه عبور باید تکمیل شوند!",
+        className: "top-message",
+      });
+    }
+  };
+
   return (
     <Row className="user-form">
       <Col
@@ -21,17 +58,26 @@ function UsersLogin() {
           size="large"
           placeholder=" ایمیل"
           prefix={<MailOutlined />}
+          value={email || ""}
+          onChange={(e) => setEmail(e.target.value)}
         />
         <Input.Password
           className="user-input"
           prefix={<LockOutlined />}
           size="large"
           placeholder=" کلمه عبور"
+          value={password || ""}
+          onChange={(e) => setPassword(e.target.value)}
         />
         <div className="forget-password">
           <a href="#">کلمه عبور را فراموش کرده اید؟</a>
         </div>
-        <Button type="primary" size="large" className="login-button">
+        <Button
+          type="primary"
+          size="large"
+          className="login-button"
+          onClick={() => handleLogin()}
+        >
           ورود به سایت
         </Button>
         <div className="google-login">

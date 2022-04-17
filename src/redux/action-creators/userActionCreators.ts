@@ -1,6 +1,8 @@
 import { userActionTypes, UserActoinInterface } from "../../interfaces";
 import { Dispatch } from "redux";
 import axiosInstance from "../../util/axios";
+import { message } from "antd";
+import { useNavigate } from "react-router-dom";
 
 interface credentialsInteface {
   email: string;
@@ -30,7 +32,13 @@ export const loginActionCreator = (credentials: credentialsInteface) => {
           },
         });
       })
-      .catch((err) => console.log(err.message));
+      .catch((err) => {
+        console.log(err.message);
+        message.error({
+          content: "نام کاربری یا کلمه عبور اشتباه است!",
+          className: "top-message",
+        });
+      });
   };
 };
 export const checkLoginActionCreator = () => {

@@ -8,20 +8,26 @@ import "./style.css";
 import GoogleLogo from "../../components/GoogleLogo";
 import axiosInstance from "../../util/axios";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
+import { rootStateType } from "../../redux/reducers";
 
 function Register(props: any) {
   const [userName, setUserName] = useState<string | null>(null);
   const [email, setEmail] = useState<string | null>(null);
   const [password, setPassword] = useState<string | null>(null);
   const [newUserId, setNewUserId] = useState<string | null>(null);
+
+  const user = useSelector((state: rootStateType) => state.user);
   const dispatch = useDispatch();
   const { loginActionCreator } = bindActionCreators(actionCreators, dispatch);
 
-  let params = useParams();
-  let location = useLocation();
   let navigate = useNavigate();
 
-  console.log(navigate);
+  useEffect(() => {
+    if (user.isLogedIn) {
+      navigate("/user-panel");
+    }
+  });
+
   useEffect(() => {
     if (newUserId && email && password) {
       const credentials = {
